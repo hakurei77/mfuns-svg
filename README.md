@@ -133,7 +133,7 @@ onUnmounted(() => {
         let particleSystem = null;
         // 初始化粒子系统
         function initParticleSystem() {
-            const { createSVGParticleSystem } = window.SVGParticleSystem;
+            const { createSVGParticleSystem } = window.SVGParticle;
             particleSystem = createSVGParticleSystem(
                 canvas,
                 svgContent

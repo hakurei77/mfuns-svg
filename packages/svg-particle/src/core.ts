@@ -1,7 +1,7 @@
 /**
  * 导入粒子类和从SVG创建粒子的函数
  */
-import Particle from './particle';
+import {Particle} from './particle';
 import { createParticlesFromSVG } from './createParticlesFromSVG';
 
 /**
@@ -15,7 +15,7 @@ import { createParticlesFromSVG } from './createParticlesFromSVG';
  * @property {number} [mouseRadius] - 鼠标影响半径
  * @property {'pull' | 'push'} [type] - 鼠标交互类型：吸引或排斥
  */
-interface SVGParticleSystemOptions {
+export interface SVGParticleSystemOptions {
     particleSpacing?: number;
     scaleFactor?: number;
     minAlpha?: number;
@@ -29,7 +29,7 @@ interface SVGParticleSystemOptions {
  * 默认配置选项
  * @constant defaultOptions
  */
-const defaultOptions: Required<SVGParticleSystemOptions> = {
+export const defaultOptions: Required<SVGParticleSystemOptions> = {
     particleSpacing: 5, //粒子间距
     scaleFactor: 3, //缩放因子
     minAlpha: 128,  //最小透明阈值
@@ -43,7 +43,7 @@ const defaultOptions: Required<SVGParticleSystemOptions> = {
  * 设置画布尺寸以匹配其显示尺寸
  * @param {HTMLCanvasElement} canvas - 要设置的画布元素
  */
-const setupCanvas = (canvas: HTMLCanvasElement) => {
+export const setupCanvas = (canvas: HTMLCanvasElement) => {
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width;
     canvas.height = rect.height;
@@ -62,7 +62,7 @@ const setupCanvas = (canvas: HTMLCanvasElement) => {
  * @param {'pull' | 'push'} mouse.type - 鼠标交互类型
  * @returns {number} 新的动画帧ID
  */
-const animate = (
+export const animate = (
     ctx: CanvasRenderingContext2D,
     canvas: HTMLCanvasElement,
     particlesArray: Particle[],
@@ -87,7 +87,7 @@ const animate = (
  * @param {SVGParticleSystemOptions} options - 配置选项
  * @returns {Object} 包含start、stop和updateOptions方法的控制对象
  */
-const createSVGParticleSystem = (
+export const createSVGParticleSystem = (
     canvas: HTMLCanvasElement,
     svg: string,
     options: SVGParticleSystemOptions
@@ -100,7 +100,7 @@ const createSVGParticleSystem = (
     let animationFrameId: number | null = null;
     // 合并默认选项和用户提供的选项
     const mergedOptions = { ...defaultOptions, ...options };
-    
+
     /**
      * 创建鼠标状态对象，跟踪鼠标位置和交互设置
      */
@@ -184,9 +184,3 @@ const createSVGParticleSystem = (
     };
 }
 
-/**
- * 导出创建SVG粒子系统的函数
- */
-export {
-    createSVGParticleSystem
-}

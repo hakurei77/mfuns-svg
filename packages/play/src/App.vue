@@ -74,7 +74,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref, onUnmounted, watch } from 'vue';
-import { createSVGParticleSystem } from './func/core'
+import { createSVGParticleSystem } from 'svg-particle'
 import svgContent from './assets/logo.svg?raw';
 
 const canvasRef = ref<HTMLCanvasElement | null>(null);

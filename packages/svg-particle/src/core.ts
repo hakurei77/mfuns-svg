@@ -1,7 +1,7 @@
 /**
  * 导入粒子类和从SVG创建粒子的函数
  */
-import {Particle} from './particle';
+import { Particle } from './particle';
 import { createParticlesFromSVG } from './createParticlesFromSVG';
 
 /**
@@ -90,7 +90,7 @@ export const animate = (
 export const createSVGParticleSystem = (
     canvas: HTMLCanvasElement,
     svg: string,
-    options: SVGParticleSystemOptions
+    options?: SVGParticleSystemOptions
 ) => {
     // 获取2D渲染上下文
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
@@ -99,7 +99,7 @@ export const createSVGParticleSystem = (
     // 动画帧ID，用于取消动画
     let animationFrameId: number | null = null;
     // 合并默认选项和用户提供的选项
-    const mergedOptions = { ...defaultOptions, ...options };
+    const mergedOptions = { ...defaultOptions, ...(options || {}) };
 
     /**
      * 创建鼠标状态对象，跟踪鼠标位置和交互设置

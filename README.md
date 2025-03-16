@@ -23,16 +23,16 @@
 
 通过 pnpm 安装：
 
-\`\`\`bash
+```bash
 pnpm add svg-particle
-\`\`\`
+```
 
 
-## 使用方法
+## ✨ 使用方法
 
 创建一个简单的粒子系统，将 SVG 圆形转换为动态粒子效果：
 
-\`\`\`javascript
+```js
 
 import { createSVGParticleSystem } from 'svg-particle'
 import svgContent from './assets/logo.svg?raw';  //需要导入原始svg字符串
@@ -61,26 +61,29 @@ onMounted(async () => {
 onUnmounted(() => {
     particleSystem?.stop();
 });
-\`\`\`
+```
 
-运行后，鼠标靠近时粒子会被推开。你可以通过 \`updateOptions\` 方法动态调整效果。
+运行后，鼠标靠近时粒子会被推开。你可以通过 `updateOptions` 方法动态调整效果。
 
-## API
+## 📦 API
 
-### \`createSVGParticleSystem(canvas, svg, options)\`
+### `createSVGParticleSystem(canvas, svg, options)`
 
 创建并返回一个 SVG 粒子系统实例。
 
 - **参数**：
-  - \`canvas: HTMLCanvasElement\` - 用于渲染粒子的画布元素。
-  - \`svg: string\` - SVG 图像的字符串内容。
-  - \`options: SVGParticleSystemOptions\` - 配置选项（见下表）。
+  - `canvas: HTMLCanvasElement` - 用于渲染粒子的画布元素。
+  - `svg: string` - SVG 图像的字符串内容。
+  - `options: SVGParticleSystemOptions` - 配置选项（见下表）。
 
 - **返回值**：
   - 一个控制对象，包含以下方法：
-    - \`start(): Promise<void>\` - 启动粒子系统。
-    - \`stop(): void\` - 停止粒子系统。
-    - \`updateOptions(newOptions: Partial<SVGParticleSystemOptions>): Promise<void>\` - 更新配置。
+    - `start(): Promise<void>` - 启动粒子系统。
+    - `stop(): void` - 停止粒子系统。
+    - `updateOptions(newOptions: Partial<SVGParticleSystemOptions>): Promise<void>` - 更新配置。
+
+
+## 📦 配置
 
 ### 配置选项
 
@@ -92,27 +95,15 @@ onUnmounted(() => {
 | particleSize     | number           | 2           | 每个粒子的大小（半径）        |
 | particleColor    | string           | 'white'     | 粒子的颜色（如 '#fff' 或 'red'） |
 | mouseRadius      | number           | 70          | 鼠标影响半径，决定交互范围    |
-| type             | 'pull' \| 'push' | 'pull'      | 鼠标交互类型：吸引或排斥      |
+| type             | 'pull' | 'push' | 'pull'      | 鼠标交互类型：吸引或排斥      |
 
-### 示例：动态更新配置
 
-\`\`\`javascript
-const particleSystem = createSVGParticleSystem(canvas, svg, { type: 'push' });
-particleSystem.start();
-
-// 5秒后切换为吸引模式并改变颜色
-setTimeout(() => {
-  particleSystem.updateOptions({ type: 'pull', particleColor: '#0ff' });
-}, 5000);
-\`\`\`
-
-## 配置
 
 ### 使用 UMD 格式
 
 如果你的项目不支持 ES 模块，可以使用 UMD 格式：
 
-\`\`\`html
+```html
 <script src="https://cdn.jsdelivr.net/npm/svg-particle/dist/umd/index.umd.min.js"></script>
 <script>
   const { createSVGParticleSystem } = window.SVGParticleSystem;
@@ -127,16 +118,9 @@ setTimeout(() => {
     );
      particleSystem.start();
 </script>
-\`\`\`
+```
 
-### 自定义粒子行为
+### ✍ 自定义粒子行为
 
-通过修改 \`Particle\` 类（需 fork 项目）或扩展选项，可以实现更多效果，例如粒子速度、动画样式等。
+通过修改 `Particle` 类（需 fork 项目）或扩展选项，可以实现更多效果，例如粒子速度、动画样式等。
 
-
-<!-- Badges -->
-
-[npm-version-src]: https://img.shields.io/npm/v/svg-particle?style=flat-square
-[npm-version-href]: https://npmjs.com/package/svg-particle
-[npm-downloads-src]: https://img.shields.io/npm/dm/svg-particle?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/svg-particle

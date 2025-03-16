@@ -3,7 +3,7 @@
  * 表示SVG图像中的一个粒子，具有位置、大小和颜色属性
  * 可以响应鼠标交互，实现吸引或排斥效果
  */
-class Particle {
+export class Particle {
     private x: number;         // 当前x坐标
     private y: number;         // 当前y坐标
     private baseX: number;     // 原始/基准x坐标
@@ -103,5 +103,3 @@ class Particle {
         }
     }
 }
-
-export default Particle;

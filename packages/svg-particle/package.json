@@ -1,0 +1,43 @@
+{
+  "name": "svg-particle",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/umd/index.umd.js",
+  "module": "./dist/es/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/es/index.mjs",
+      "require": "./dist/umd/index.umd.js"
+    },
+    "./dist/": {
+      "import": "./dist/",
+      "require": "./dist/"
+    }
+  },
+  "scripts": {
+    "build": "run-p build-es build-umd",
+    "build:watch": "run-p build-es:watch build-umd:watch",
+    "build-umd": "vite build --config vite.umd.config.ts",
+    "build-es": "vite build --config vite.es.config.ts",
+    "build-umd:watch": "vite build --watch --config vite.umd.config.ts",
+    "build-es:watch": "vite build --watch --config vite.es.config.ts",
+    "release": "release-it"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.13.10",
+    "release-it": "^18.1.2",
+    "vite": "^6.2.2"
+  },
+  "devDependencies": {
+    "npm-run-all2": "^7.0.2",
+    "vite-plugin-dts": "^4.5.3"
+  }
+}
